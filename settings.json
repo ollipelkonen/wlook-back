@@ -1,0 +1,11 @@
+{
+  "token": "fbf566e0bd6667409502db0f",
+  "port": "8080",
+  "database": {
+      "host": "localhost",
+      "port": "3306",
+      "database": "wlook",
+      "username": "root",
+      "password": "root"
+  }
+}
