@@ -5,10 +5,10 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/ollipelkonen/wlook_back/config"
-	"github.com/ollipelkonen/wlook_back/repositories"
-	"github.com/ollipelkonen/wlook_back/services"
-	ping "github.com/ollipelkonen/wlook_back/target_test"
+	"github.com/ollipelkonen/wlook-back/config"
+	"github.com/ollipelkonen/wlook-back/repositories"
+	"github.com/ollipelkonen/wlook-back/services"
+	"github.com/ollipelkonen/wlook-back/target_test"
 )
 
 func authMiddleware(token string) mux.MiddlewareFunc {
@@ -38,6 +38,9 @@ func main() {
 
 	fmt.Printf("____ listening to port %s\n", config.Port)
 
+	p := target_test.NewPing()
+	p.Test()
+
 	r := mux.NewRouter()
 
 	r.Handle("/todo", todoService.CreateGetAllEndpoint()).Methods("GET")
@@ -48,6 +51,4 @@ func main() {
 
 	r.Use(authMiddleware(config.Token))
 	http.ListenAndServe(":"+config.Port, r)
-
-	ping.Ping.Test()
 }

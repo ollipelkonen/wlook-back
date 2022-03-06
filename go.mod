@@ -1,4 +1,4 @@
-module github.com/ollipelkonen/wlook_back
+module github.com/ollipelkonen/wlook-back
 
 go 1.17
 

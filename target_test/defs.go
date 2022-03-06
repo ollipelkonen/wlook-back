@@ -17,5 +17,6 @@ type Todo struct {
 }
 
 type Target_test interface {
+	New() Target_test
 	Test() string
 }

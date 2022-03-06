@@ -13,7 +13,7 @@ import (
 
 	httptransport "github.com/go-kit/kit/transport/http"
 	"github.com/gorilla/mux"
-	"github.com/ollipelkonen/wlook_back/repositories"
+	"github.com/ollipelkonen/wlook-back/repositories"
 )
 
 type TodoService interface {
