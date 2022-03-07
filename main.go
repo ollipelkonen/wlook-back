@@ -6,7 +6,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/ollipelkonen/wlook-back/config"
-	"github.com/ollipelkonen/wlook-back/repositories"
+	"github.com/ollipelkonen/wlook-back/repository"
 	"github.com/ollipelkonen/wlook-back/services"
 	"github.com/ollipelkonen/wlook-back/target_test"
 )
@@ -33,8 +33,8 @@ func main() {
 		config.Database.Port,
 		config.Database.Database)
 
-	todoRepository := repositories.CreateRepository(connectionString)
-	todoService := services.CreateService(todoRepository)
+	repository := repository.CreateRepository(connectionString)
+	todoService := services.CreateService(repository)
 
 	fmt.Printf("____ listening to port %s\n", config.Port)
 

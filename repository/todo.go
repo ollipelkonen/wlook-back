@@ -1,4 +1,4 @@
-package repositories
+package repository
 
 /*
 	This package contains code to for Todo MySQL repository. Uses MySQL
@@ -6,35 +6,14 @@ package repositories
 
 import (
 	"fmt"
-	_ "github.com/go-sql-driver/mysql" // required driver, do not remove even if compiler nags it unused
-	"github.com/jmoiron/sqlx"
 	"reflect"
 	"strconv"
 	"strings"
 	"time"
+
+	_ "github.com/go-sql-driver/mysql" // required driver, do not remove even if compiler nags it unused
+	"github.com/jmoiron/sqlx"
 )
-
-var todoSchema = `
-CREATE TABLE IF NOT EXISTS todo (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  description TEXT DEFAULT "",
-  priority INT DEFAULT 1,
-  duedate TIMESTAMP DEFAULT 0,
-  completed TINYINT(1) DEFAULT 0,
-  completiondate TIMESTAMP DEFAULT 0
-);`
-
-// database model
-type Todo struct {
-	Id             int
-	Name           string
-	Description    string
-	Priority       int
-	Duedate        time.Time
-	Completed      int
-	Completiondate time.Time
-}
 
 type TodoRepository interface {
 	connect(string)

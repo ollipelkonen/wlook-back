@@ -13,7 +13,7 @@ import (
 
 	httptransport "github.com/go-kit/kit/transport/http"
 	"github.com/gorilla/mux"
-	"github.com/ollipelkonen/wlook-back/repositories"
+	"github.com/ollipelkonen/wlook-back/repository"
 )
 
 type TodoService interface {
@@ -25,7 +25,7 @@ type TodoService interface {
 }
 
 type TodoServiceImpl struct {
-	todoRepository repositories.TodoRepositoryImpl
+	todoRepository repository.TodoRepositoryImpl
 }
 
 // requests and replies
@@ -42,7 +42,7 @@ type PathIdRequest struct {
 }
 
 // create new instance of the service
-func CreateService(todoRepository repositories.TodoRepositoryImpl) TodoService {
+func CreateService(todoRepository repository.TodoRepositoryImpl) TodoService {
 	impl := &TodoServiceImpl{
 		todoRepository,
 	}
