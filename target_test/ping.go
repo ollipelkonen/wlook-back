@@ -2,6 +2,7 @@ package target_test
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/go-ping/ping"
 )
@@ -51,6 +52,8 @@ func (r *Ping) Test() string {
 	pinger.Count = 1
 	pinger.Size = 24
 	pinger.TTL = 64
+	pinger.Timeout = time.Second * 10
+	pinger.Interval = time.Second
 	pinger.SetPrivileged(true)
 	err = pinger.Run()
 	if err != nil {
