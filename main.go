@@ -41,6 +41,9 @@ func main() {
 	p := target_test.NewPing()
 	p.Test()
 
+	h := target_test.newHttp()
+	h.Test()
+
 	r := mux.NewRouter()
 
 	r.Handle("/todo", todoService.CreateGetAllEndpoint()).Methods("GET")

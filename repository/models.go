@@ -23,3 +23,41 @@ type Todo struct {
 	Completed      int
 	Completiondate time.Time
 }
+
+var customerSchema = `
+CREATE TABLE IF NOT EXISTS customer (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  username varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  email varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  password_salt varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+	password_hash varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4`
+
+// database model
+type Customer struct {
+	Id            int
+	Username      string
+	Email         string
+	Password_hash string
+	Password_salt string
+}
+
+var serverSchema = `
+CREATE TABLE IF NOT EXISTS server (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  username varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  email varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  password_salt varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+	password_hash varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4`
+
+// database model
+type Server struct {
+	Id            int
+	Username      string
+	Email         string
+	Password_hash string
+	Password_salt string
+}
